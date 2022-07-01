@@ -9,4 +9,5 @@ CREATE TABLE catcards (
   caption varchar(256) NOT NULL    -- User-provided caption
 );
 
+
 COMMIT TRANSACTION;

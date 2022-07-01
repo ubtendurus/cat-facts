@@ -1,11 +1,14 @@
 package com.techelevator.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.validation.constraints.NotEmpty;
 
 public class CatCard {
-
+	//@JsonProperty(value = "id")
 	public Long catCardId;
 	@NotEmpty
+	@JsonProperty(value = "fact")
 	public String catFact;
 	@NotEmpty
 	public String imgUrl;

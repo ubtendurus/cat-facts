@@ -2,6 +2,8 @@ package com.techelevator.dao;
 
 import com.techelevator.model.CatCard;
 import com.techelevator.model.CatCardNotFoundException;
+import com.techelevator.model.CatFact;
+import com.techelevator.model.CatPic;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -69,6 +71,20 @@ public class JdbcCatCardDao implements CatCardDao {
 
 	private boolean exists(long id) {
 		return jdbcTemplate.queryForObject("select * from catcards where id = ?", new Object[]{id}, boolean.class);
+	}
+
+	@Override
+	public CatCard randomGet(CatFact catFact, CatPic catPic){
+		CatCard card = new CatCard();
+		long id = 1;
+		card.setCatFact(catFact.getText());
+		card.setImgUrl(catPic.getFile());
+		card.setCaption("undefined");
+		card.setCatCardId(id);
+
+		//save(card);
+
+		return card;
 	}
 	
 	private CatCard mapRowToCard(SqlRowSet rs) {
