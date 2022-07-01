@@ -24,9 +24,9 @@ function getNewCard() {
             caption.style.textAlign = 'left';
 
             cardData = {};
-            cardData['catFact'] = data.catFact;
+            cardData['catFact'] = data.fact;
             cardData['imgUrl'] = data.imgUrl;
-            cat_fact.innerText = data.catFact;
+            cat_fact.innerText = data.fact;
             cat_pic.setAttribute('src', data.imgUrl);
             caption.focus();
         });
@@ -124,13 +124,13 @@ function editHandler(event, id) {
         .then((data) => {
             cardData = {};
             cardData['catCardId'] = data.catCardId;
-            cardData['catFact'] = data.catFact;
+            cardData['catFact'] = data.fact;
             cardData['imgUrl'] = data.imgUrl;
             cardData['caption'] = data.caption;
             caption.value = data.caption;
             caption.disabled = false;
             caption.style.textAlign = 'left';
-            cat_fact.innerText = data.catFact;
+            cat_fact.innerText = data.fact;
             cat_pic.setAttribute('src', data.imgUrl);
             caption.focus();
         });

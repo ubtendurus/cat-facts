@@ -79,7 +79,7 @@ public class JdbcCatCardDao implements CatCardDao {
 		long id = 1;
 		card.setCatFact(catFact.getText());
 		card.setImgUrl(catPic.getFile());
-		card.setCaption("undefined");
+		//card.setCaption("undefined");
 		card.setCatCardId(id);
 
 		//save(card);

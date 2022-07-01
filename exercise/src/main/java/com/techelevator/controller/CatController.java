@@ -42,17 +42,14 @@ public class CatController {
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.CREATED)
-    public CatCard createCard(@RequestBody CatCard catCard){
+    public void createCard(@Valid @RequestBody CatCard catCard){
         catCardDao.save(catCard);
-
-        return catCard;
     }
 
     @RequestMapping(path= "/{id}", method = RequestMethod.PUT)
     @ResponseStatus(value = HttpStatus.ACCEPTED)
-    public CatCard updateCard(@PathVariable long id,@Valid @RequestBody CatCard catCard) throws CatCardNotFoundException {
+    public void updateCard(@PathVariable long id,@Valid @RequestBody CatCard catCard) throws CatCardNotFoundException {
         catCardDao.update(id,catCard);
-        return getCatCard(id);
     }
 
     @RequestMapping(path= "/{id}", method = RequestMethod.DELETE)
